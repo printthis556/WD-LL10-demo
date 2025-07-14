@@ -1,5 +1,13 @@
 /* Task 1 - Complete the function according to the TODO */
-function addComment(username, comment, addToStart) {}
+function addComment(username, comment, addToStart) {
+  const combinedComment = `${username}: ${comment}`;
+
+  if (addToStart) {
+    comments.unshift(combinedComment);
+  } else {
+    comments.push(combinedComment);
+  }
+}
 
 /* Task 2 - Create your showWinnerMessage below according to the TODO */
 
