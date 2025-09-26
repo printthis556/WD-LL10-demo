@@ -37,8 +37,11 @@ function pickWinner() {
   ];
   // Pick a random emoji from the array
   const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-  // Update the #winner-emoji element with the emoji
-  document.getElementById("winner-emoji").textContent = randomEmoji;
+  // Update the #winner-emoji element with the emoji (check if element exists)
+  const emojiDiv = document.getElementById("winner-emoji");
+  if (emojiDiv) {
+    emojiDiv.textContent = randomEmoji;
+  }
 }
 /* Task 4 - Complete the function according to the TODO */
 // This function displays a random emoji in the #winner-emoji element
@@ -87,3 +90,11 @@ function filterList(searchTerm, searchUsers) {}
 /* Level Up - Task 9 - Compelte the task according to the TODO */
 
 /* Level Up - Task 10 - Add to the `addComment` function so that the an `@` sign is added to the username if there is not already one before it gets pushed into the array.  */
+
+// Add event listener for Pick a Winner button
+document.addEventListener("DOMContentLoaded", function () {
+  const pickWinnerBtn = document.getElementById("pick-winner-btn");
+  if (pickWinnerBtn) {
+    pickWinnerBtn.addEventListener("click", pickWinner);
+  }
+});
